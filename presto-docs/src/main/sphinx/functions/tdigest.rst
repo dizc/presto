@@ -91,10 +91,8 @@ Functions
 
 .. function:: construct_tdigest(centroid_means array<double>, centroid_weights array<double>, compression double, min double, max double, sum double, count bigint) -> tdigest<double>
 
-    Returns the ``tdigest`` which is composed of all of the internal parameters
-    that are used to generate a ``tdigest`` object: arrays of the centroid means
+    Returns the ``tdigest`` from its component parts (arrays of the centroid means
     and weights, the compression factor, and the maximum, minimum, sum and count of the
-    values in the digest. This is an inverse of ``destructure_tdigest``.
+    values in the digest). This is an inverse of ``destructure_tdigest``.
 
-    Particularly useful if a tdigest is computed externally to Presto but still needs
-    to be stored in the warehouse.
+    This function is particularly useful for adding externally-created tdigests to Presto.
